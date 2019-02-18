@@ -100,7 +100,7 @@ export default {
 <style scoped lang="scss">
 
 .products-section {
-      margin: 50px;
+      margin: 50px auto 50px auto;
       display: flex;
       flex-direction: column;
       max-width: 1440px;
@@ -147,12 +147,12 @@ export default {
 
 .big {
     grid-column: span 6;
-    grid-row: span 8;
+    grid-row: span 7;
 }
 
 .small {
     grid-column: span 3;
-    grid-row: span 4;
+    grid-row: span 6;
 }
 
 .product-img {

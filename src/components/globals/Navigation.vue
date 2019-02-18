@@ -25,19 +25,19 @@
           <div class="dropdown__content" v-if="showDropDownMens">
             <div class="dropdown-content-row">
               <h5 class="dropdown-content-row__heading">CASUALS</h5>
-              <router-link class="dropdown-content-row__item" to="/mens">Jackets</router-link>
-              <router-link class="dropdown-content-row__item" to="/mens">Hoodies &amp; Sweatshirts</router-link>
-              <router-link class="dropdown-content-row__item" to="/mens">Polo Shirts</router-link>
-              <router-link class="dropdown-content-row__item" to="/mens">Sportswear</router-link>
-              <router-link class="dropdown-content-row__item" to="/mens">Trousers &amp; Chinos</router-link>
-              <router-link class="dropdown-content-row__item" to="/mens">T-Shirts</router-link>
+              <router-link class="dropdown-content-row__item" to="/">Jackets</router-link>
+              <router-link class="dropdown-content-row__item" to="/">Hoodies &amp; Sweatshirts</router-link>
+              <router-link class="dropdown-content-row__item" to="/">Polo Shirts</router-link>
+              <router-link class="dropdown-content-row__item" to="/">Sportswear</router-link>
+              <router-link class="dropdown-content-row__item" to="/">Trousers &amp; Chinos</router-link>
+              <router-link class="dropdown-content-row__item" to="/">T-Shirts</router-link>
             </div>
             <div class="dropdown-content-row">
               <h5 class="dropdown-content-row__heading">FORMAL</h5>
-              <router-link class="dropdown-content-row__item" to="/mens">Jackets</router-link>
-              <router-link class="dropdown-content-row__item" to="/mens">Shirts</router-link>
-              <router-link class="dropdown-content-row__item" to="/mens">Suits</router-link>
-              <router-link class="dropdown-content-row__item" to="/mens">Trousers</router-link>
+              <router-link class="dropdown-content-row__item" to="/">Jackets</router-link>
+              <router-link class="dropdown-content-row__item" to="/">Shirts</router-link>
+              <router-link class="dropdown-content-row__item" to="/">Suits</router-link>
+              <router-link class="dropdown-content-row__item" to="/">Trousers</router-link>
             </div>
 
 
@@ -50,19 +50,19 @@
                     <div class="dropdown__content" v-if="showDropDownWomens">
             <div class="dropdown-content-row">
               <h5 class="dropdown-content-row__heading">CASUALS</h5>
-              <router-link class="dropdown-content-row__item" to="/mens">Jackets</router-link>
-              <router-link class="dropdown-content-row__item" to="/mens">Hoodies &amp; Sweatshirts</router-link>
-              <router-link class="dropdown-content-row__item" to="/mens">Polo Shirts</router-link>
-              <router-link class="dropdown-content-row__item" to="/mens">Sportswear</router-link>
-              <router-link class="dropdown-content-row__item" to="/mens">Trousers &amp; Chinos</router-link>
-              <router-link class="dropdown-content-row__item" to="/mens">T-Shirts</router-link>
+              <router-link class="dropdown-content-row__item" to="/">Jackets</router-link>
+              <router-link class="dropdown-content-row__item" to="/">Hoodies &amp; Sweatshirts</router-link>
+              <router-link class="dropdown-content-row__item" to="/">Polo Shirts</router-link>
+              <router-link class="dropdown-content-row__item" to="/">Sportswear</router-link>
+              <router-link class="dropdown-content-row__item" to="/">Trousers &amp; Chinos</router-link>
+              <router-link class="dropdown-content-row__item" to="/">T-Shirts</router-link>
             </div>
             <div class="dropdown-content-row">
               <h5 class="dropdown-content-row__heading">FORMAL</h5>
-              <router-link class="dropdown-content-row__item" to="/mens">Dresses</router-link>
-              <router-link class="dropdown-content-row__item" to="/mens">Shirts</router-link>
-              <router-link class="dropdown-content-row__item" to="/mens">Suits</router-link>
-              <router-link class="dropdown-content-row__item" to="/mens">Trousers</router-link>
+              <router-link class="dropdown-content-row__item" to="/">Dresses</router-link>
+              <router-link class="dropdown-content-row__item" to="/">Shirts</router-link>
+              <router-link class="dropdown-content-row__item" to="/">Suits</router-link>
+              <router-link class="dropdown-content-row__item" to="/">Trousers</router-link>
             </div>
 
 
@@ -70,7 +70,7 @@
           </div> 
         </div>
         
-        <router-link class="menu-item" to="#">THE BRAND</router-link>
+        <router-link class="menu-item" to="/brand">THE BRAND</router-link>
 
         <div class="dropdown" @mouseover="showDropDownStores = true" @mouseleave="showDropDownStores = false">
           <router-link class="menu-item arrow" to="#">LOCAL STORES</router-link>

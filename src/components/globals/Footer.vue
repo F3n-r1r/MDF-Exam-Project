@@ -71,11 +71,11 @@ export default {
 
 .footer {
    background-color: #f8f8f8;
-   padding: 30px;
 
    .wrapper {
      margin: auto;
      max-width: 1024px;
+     padding: 30px;
      display: flex;
      justify-content: space-between;
      flex-wrap: wrap;
@@ -86,13 +86,16 @@ export default {
       }
 
      .list-container {
-      padding: 20px 20px 20px 0px;
+      padding: 0px 0px 20px 0px;
       max-width: 250px;
       min-width: 150px;
       list-style-type: none;
 
       @media only screen and (min-width : 320px) and (max-width : 480px) {
-          width: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 250px;
       }
 
       .list-container__heading {
