@@ -147,12 +147,12 @@ export default {
 
 .big {
     grid-column: span 6;
-    grid-row: span 7;
+    grid-row: span 8;
 }
 
 .small {
     grid-column: span 3;
-    grid-row: span 6;
+    grid-row: span 4;
 }
 
 .product-img {
