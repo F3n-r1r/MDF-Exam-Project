@@ -55,11 +55,21 @@ export default {
     .tab-container {
         grid-column: span 12;
 
+        @media only screen and (min-width : 320px) and (max-width : 480px) {
+            width: 320px;
+        }
+
         .tab-container__tabs {
             background-color: #f8f8f8;
             height: 50px;
             display: flex;
             font-family: 'Roboto', sans-serif;
+
+            @media only screen and (min-width : 320px) and (max-width : 480px) {
+                flex-direction: column;
+                height: 200px;
+            }
+
 
             .tabs__tab {
                 height: 100%;

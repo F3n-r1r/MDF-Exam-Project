@@ -86,6 +86,11 @@ export default {
         position: relative;
         user-select: none;
 
+        @media only screen and (min-width : 320px) and (max-width : 480px) {
+            max-width: 320px;
+            min-height: 300px;
+        }
+
         .img-container {
             position: absolute;
             width: 100%;
@@ -94,9 +99,20 @@ export default {
             justify-content: center;
             overflow: hidden;
 
+            @media only screen and (min-width : 320px) and (max-width : 480px) {
+                position: relative;
+                height: 400px;
+                width: 320px;
+            }
+
             .img-container__img {
                 position: relative;
-                height: 100%
+                height: 100%;
+
+
+                @media only screen and (min-width : 320px) and (max-width : 480px) {
+                    object-fit: fill;
+                }
             }
 
             .img-container__actions-container {

@@ -5,11 +5,11 @@
 
     <section class="product-section">
 
-        <ProductImgSlider />
+        <ProductImgSlider class="productSlider"/>
 
-        <ProductInfo />
+        <ProductInfo class="productInfo"/>
 
-        <ProductTabs />
+        <ProductTabs class="productTab"/>
 
     </section>
 
@@ -50,7 +50,19 @@ export default {
         grid-row-gap: 30px;
         grid-column-gap: 30px;
         grid-template-columns: repeat(12, 1fr);
-        grid-auto-rows: auto;  
+        grid-auto-rows: auto;
+
+        @media only screen and (min-width : 320px) and (max-width : 480px) { //480
+            max-width: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0px 10px 0px 10px;
+        }
+
+        .productInfo {
+          width: 100%;
+        }
     }
     
 </style>

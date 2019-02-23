@@ -97,10 +97,12 @@
             </div>
             <div class="option-container">
                 <label class="selector-label" for="qty">QTY</label>
-                <input class="selector-qty" type="number" min="1" step="1" value="1" name="qty" id="qty">
-                <div class="spin-container">
-                    <button class="spin spin__up">O</button>
-                    <button class="spin spin__down">D</button>
+                <div class="qty-container">
+                    <input class="selector-qty" type="number" v-bind:value="qtyValue" name="qty" id="qty">
+                    <div class="spin-container">
+                        <button v-on:click="qtyValue += 1" class="spin spin__up"><i class="fas fa-angle-up"></i></button>
+                        <button v-on:click="qtyValue -= 1" class="spin spin__down"><i class="fas fa-angle-down"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -121,7 +123,7 @@ export default {
     name: 'ProductInfo',
     data: function() {
         return {
-    
+            qtyValue: 1
     }
     }
 }
@@ -139,6 +141,10 @@ export default {
         white-space: nowrap;
         font-size: 0.8em;
 
+        @media only screen and (min-width : 320px) and (max-width : 480px) {
+            margin-top: 15px;
+        }
+
         .social-text {
             margin: 0px 10px 0px 10px;
         }
@@ -147,15 +153,29 @@ export default {
             display: flex;
             margin: 15px 0px 15px 0px;
 
+            @media only screen and (min-width : 320px) and (max-width : 480px) {
+                flex-wrap: wrap;
+            }
+
             .reviews {
                 display: flex;
                 width: 100%;
                 justify-content: space-between;
                 align-items: center;
 
+                @media only screen and (min-width : 320px) and (max-width : 480px) {
+                    justify-content:start;
+                }
+
                 .vl {
-                border-left: 1px solid #8c8c8c;
-                height: 100%;
+                    border-left: 1px solid #8c8c8c;
+                    height: 100%;
+
+                    &:last-child {
+                        @media only screen and (min-width : 320px) and (max-width : 480px) {
+                            display: none;
+                        }
+                    }
                 }
 
                 .reviews__stars {
@@ -181,13 +201,33 @@ export default {
                 justify-content: space-between;
                 align-items: center;
 
+                @media only screen and (min-width : 320px) and (max-width : 480px) {
+                    margin-top: 10px;
+                }
+
+                .social-text {
+                    margin: 0px 10px 0px 10px;
+
+                    @media only screen and (min-width : 320px) and (max-width : 480px) {
+                        margin: 0px 10px 0px 0px;
+                    }
+                }
+
                 .share__icons {
                     display: flex;
                     width: 100%;
                     justify-content: space-between;
 
+                    @media only screen and (min-width : 320px) and (max-width : 480px) {
+                        justify-content:start;
+                    }
+
                     .icon {
                         color: #8c8c8c;
+
+                         @media only screen and (min-width : 320px) and (max-width : 480px) {
+                             margin-right: 10px;
+                        }
 
                         &:hover {
                             color: #33d3d3;
@@ -256,10 +296,21 @@ export default {
             display: flex;
             margin-bottom: 30px;
 
+            @media only screen and (min-width : 320px) and (max-width : 480px) {
+                flex-wrap: wrap;
+             }
+
             .option-container {
                 display: flex;
                 flex-direction: column;
                 position: relative;
+
+                &:last-child {
+                    @media only screen and (min-width : 320px) and (max-width : 480px) {
+                        margin-top: 15px;
+                    }
+                }
+
 
                 .selector-label {
                     margin-bottom: 5px;
@@ -297,8 +348,42 @@ export default {
                     &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
                         -webkit-appearance: none; 
                         margin: 0;
-                    }                       
+                    }     
                 }
+
+                .qty-container {
+                    position: relative;
+
+                    
+
+                    .spin-container {
+                        position: absolute;
+                        top: 1px;
+                        right: 1px;
+                        bottom: 1px;
+                        display: flex;
+                        justify-content: space-between;
+                        flex-direction: column;
+
+                        .spin {
+                            color: #bababa;
+                            background-color: transparent;
+                            border: none;
+                            border-left:1px solid #e7e7e7;
+                            width: 40px;
+                            height: 50%;
+                            cursor: pointer;
+
+                            &:last-child {
+                                border-top: 1px solid #e7e7e7;
+                            }
+
+                            &:focus {
+                                outline: 0;
+                            }
+                        }
+                    }
+                }                   
             }
         }
 
@@ -306,6 +391,12 @@ export default {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+
+            @media only screen and (min-width : 320px) and (max-width : 480px) {
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 30px;
+            }
 
 
             .btn {

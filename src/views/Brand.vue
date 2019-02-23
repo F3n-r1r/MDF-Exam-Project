@@ -72,7 +72,7 @@ export default {
 
 .brand-section {
   margin: auto;
-  max-width: 1024px;
+  width: 1024px;
   padding: 50px 20px 100px 20px;
   display: grid;
   grid-row-gap: 5px;
@@ -83,6 +83,7 @@ export default {
   @media only screen and (min-width : 320px) and (max-width : 480px) {
     display: flex;
     flex-direction: column;
+    width: 320px;
   }
 
   .brand-section__container {
