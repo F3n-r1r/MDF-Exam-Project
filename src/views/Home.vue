@@ -37,37 +37,42 @@ export default {
   background-color: #ffffff;
 }
 
-// MOVE BACKGROUND INSIDE WRAPPER INSTEAD!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   .banner {
     position: relative;
-    background-image: url("../assets/bgImgHomeLarge.png");
     height: 920px;
     background-color: #f8f8f8;
-    background-position: left;
-    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    @media only screen and (min-width : 481px) and (max-width : 1024px) {
-        background-image: url("../assets/bgImgHomeMedium.png");
-        height: 690px;
-    }
+    min-width: 1024px;
     
     @media only screen and (min-width : 320px) and (max-width : 480px) {
-        background-image: url("../assets/bgImgHomeSmall.png");
         height: 460px;
+        min-width: 320px;
     }
+
   }
 
 .wrapper {
+    background-image: url("../assets/bgImgHomeLarge.png");
+  
+    background-position: left;
+    background-repeat: no-repeat;
+
   position: relative;
   width: 1440px;
-  height: 80%;
-  padding: 50px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0px 50px 0px 50px;
+
+    
+    @media only screen and (min-width : 320px) and (max-width : 480px) {
+        background-image: url("../assets/bgImgHomeSmall.png");
+        width: 100%;
+        
+    }
 
   .companyLogo {
     font-size: 20em;
@@ -75,10 +80,6 @@ export default {
     display: flex;
     justify-content: space-between;
     width: 100%;
-
-    @media only screen and (min-width : 481px) and (max-width : 1024px) {
-        font-size: 15em;
-    }
     
     @media only screen and (min-width : 320px) and (max-width : 480px) {
         font-size: 5em;
@@ -87,7 +88,8 @@ export default {
 
   .primary-btn {
     position: absolute;
-    right: 10px;
+    right: 25px;
+    bottom: 150px;
     align-self: flex-end;
     color: #454647;
     white-space: nowrap;
@@ -96,6 +98,10 @@ export default {
     background-color: #f8f8f8;
     padding: 15px 25px 15px 25px;
     font-family: 'Montserrat', sans-serif;
+
+    @media only screen and (min-width : 320px) and (max-width : 480px) {
+        bottom: 20px;
+    }
 
     &:focus {
       outline: none;

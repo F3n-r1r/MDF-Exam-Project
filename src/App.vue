@@ -27,20 +27,25 @@ export default {
 
 
 <style lang="scss">
-* {
-  padding: 0;
-  margin: 0;
-}
+  * {
+    padding: 0;
+    margin: 0;
+  }
 
+  #app {
+    min-width: 1440px;
 
+    @media only screen and (min-width : 320px) and (max-width : 480px) {
+      min-width: 320px;
+    }
+  }
 
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto', sans-serif;
-}
+  p {
+    font-family: 'Montserrat', sans-serif;
 
-p {
-  font-family: 'Montserrat', sans-serif;
-
-}
+  }
 </style>

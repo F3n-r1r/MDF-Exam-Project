@@ -174,13 +174,14 @@ export default {
 
 .section-main {
   margin: auto;
-  max-width: 1024px;
+  width: 1024px;
   display: flex;
   justify-content: center;
     
   @media only screen and (min-width : 320px) and (max-width : 480px) {
       flex-direction: column;
       align-items: center;
+      width: 320px;
       padding: 0px 20px 0px 20px;
   }
 

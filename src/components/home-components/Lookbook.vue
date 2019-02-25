@@ -47,12 +47,15 @@ export default {
 .lookbook-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    grid-gap: 20px;
-    margin: 50px 0px 50px 0px;
-    justify-content: space-between center;
+    grid-gap: 10px;
+    margin: 0px auto 75px auto;
+
             
     @media only screen and (min-width : 320px) and (max-width : 480px) {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        min-width: 320px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .lookbook-section__container {
@@ -61,7 +64,10 @@ export default {
         display: flex;
         justify-content: space-around;
 
+
         @media only screen and (min-width : 320px) and (max-width : 480px) {
+            max-width: 320px;
+            margin-top: 20px;
             padding: 50px 20px 50px 20px;
         }
 
@@ -69,14 +75,6 @@ export default {
         .lookbook-quickView__element__img {
             height: 400px;
             margin-top: 0;
-
-            @media only screen and (min-width : 769px) and (max-width : 1024px) {
-                height: 300px;
-            }
-            
-            @media only screen and (min-width : 481px) and (max-width : 768px) {
-               
-            }
 
             @media only screen and (min-width : 320px) and (max-width : 480px) {
                 display: none;

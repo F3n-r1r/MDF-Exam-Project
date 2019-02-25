@@ -3,37 +3,37 @@
       <div class="wrapper">
         <ul class="list-container">
           <h5 class="list-container__heading">INFORMATION</h5>
-          <li class="list-container__item">The brand</li>
-          <li class="list-container__item">Local stores</li>
-          <li class="list-container__item">Customer service</li>
-          <li class="list-container__item">Privacy &amp; cookies</li>
-          <li class="list-container__item">Sitemap</li>
+          <li class="list-container__item"><a href="#">The brand</a></li>
+          <li class="list-container__item"><a href="#">Local stores</a></li>
+          <li class="list-container__item"><a href="#">Customer service</a></li>
+          <li class="list-container__item"><a href="#">Privacy &amp; cookies</a></li>
+          <li class="list-container__item"><a href="#">Sitemap</a></li>
         </ul>
         <ul class="list-container">
           <h5 class="list-container__heading">WHY BUY FROM US</h5>
-          <li class="list-container__item">Shipping &amp; returns</li>
-          <li class="list-container__item">Secure shopping</li>
-          <li class="list-container__item">Testimonials</li>
-          <li class="list-container__item">Award winning</li>
-          <li class="list-container__item">Ethical trading</li>
+          <li class="list-container__item"><a href="#">Shipping &amp; returns</a></li>
+          <li class="list-container__item"><a href="#">Secure shopping</a></li>
+          <li class="list-container__item"><a href="#">Testimonials</a></li>
+          <li class="list-container__item"><a href="#">Award winning</a></li>
+          <li class="list-container__item"><a href="#">Ethical trading</a></li>
         </ul>
         <ul class="list-container">
           <h5 class="list-container__heading">YOUR ACCOUNT</h5>
-          <li class="list-container__item">Sign in</li>
-          <li class="list-container__item">Register</li>
-          <li class="list-container__item">View cart</li>
-          <li class="list-container__item">View your lookbook</li>
-          <li class="list-container__item">Track an order</li>
-          <li class="list-container__item">Update information</li>
+          <li class="list-container__item"><a href="#">Sign in</a></li>
+          <li class="list-container__item"><a href="#">Register</a></li>
+          <li class="list-container__item"><a href="#">View cart</a></li>
+          <li class="list-container__item"><a href="#">View your lookbook</a></li>
+          <li class="list-container__item"><a href="#">Track an order</a></li>
+          <li class="list-container__item"><a href="#">Update information</a></li>
         </ul>
         <ul class="list-container">
           <h5 class="list-container__heading">LOOKBOOK</h5>
-          <li class="list-container__item">Latest posts</li>
-          <li class="list-container__item">Men's lookbook</li>
-          <li class="list-container__item">Women's lookbook</li>
-          <li class="list-container__item">Lookbooks RSS feed</li>
-          <li class="list-container__item">View your lookbook</li>
-          <li class="list-container__item">Delete your lookbook</li>
+          <li class="list-container__item"><a href="#">Latest posts</a></li>
+          <li class="list-container__item"><a href="#">Men's lookbook</a></li>
+          <li class="list-container__item"><a href="#">Women's lookbook</a></li>
+          <li class="list-container__item"><a href="#">Lookbooks RSS feed</a></li>
+          <li class="list-container__item"><a href="#">View your lookbook</a></li>
+          <li class="list-container__item"><a href="#">Delete your lookbook</a></li>
         </ul>
          <ul class="list-container">
           <h5 class="list-container__heading">CONTACT DETAILS</h5>
@@ -49,10 +49,10 @@
           </div>
           <div class="social-media-container">
               <ul class="social-media-container__list-container">
-                <li class="social-media-container__list-container__item"><i class="fab fa-facebook-f"></i></li>
-                <li class="social-media-container__list-container__item"><i class="fab fa-twitter"></i></li>
-                <li class="social-media-container__list-container__item"><i class="fab fa-instagram"></i></li>
-                <li class="social-media-container__list-container__item"><i class="fab fa-pinterest"></i></li>
+                <li class="social-media-container__list-container__item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li class="social-media-container__list-container__item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li class="social-media-container__list-container__item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li class="social-media-container__list-container__item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
               </ul>
           </div>
         </div>
@@ -86,16 +86,13 @@ export default {
       }
 
      .list-container {
-      padding: 0px 0px 20px 0px;
-      max-width: 250px;
-      min-width: 150px;
+      margin-bottom: 20px;
       list-style-type: none;
 
       @media only screen and (min-width : 320px) and (max-width : 480px) {
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 250px;
       }
 
       .list-container__heading {
@@ -106,12 +103,21 @@ export default {
       .list-container__item {
         margin-bottom: 10px;
         color: #727272;
+
+        a {
+          text-decoration: none;
+          color: #727272;
+
+          &:visited {
+            color: #727272;
+          }
+        }
       }
      }
 
      .block-container {
        position: relative;
-       flex: 0 0 100%;
+       flex: 1;
        display: flex;
        flex-wrap: wrap;
        justify-content: space-between;
@@ -123,7 +129,6 @@ export default {
         .award-container {
           display: flex;
           flex: 0 0 45%;
-          min-width: 350px;
           height: 100px;
           flex-direction: column;
           align-items: center;
@@ -144,7 +149,6 @@ export default {
         .social-media-container {
           background-color: #00c8c8;
           flex: 0 0 45%;
-          min-width: 350px;
           height: 100px;
           padding: 40px 20px 40px 20px;
 
@@ -163,12 +167,21 @@ export default {
 
             .social-media-container__list-container__item {
               font-size: 2em;
-              color: #ffffff;
+
+                 a {
+                  text-decoration: none;
+                  color: #ffffff;
+
+                  &:visited {
+                    color: #ffffff;
+                  }
+                }
             }
           }
         }
      }
    }
+
 }
 
 
