@@ -1,6 +1,6 @@
 <template>
     <div class="info-container">
-        <h3>AVE CLASSIC SWEATSHIRT</h3>
+        <h3>{{ activeProduct[0].productName }}</h3>
 
         <div class="info-container__social">
             <div class="reviews">
@@ -123,8 +123,91 @@ export default {
     name: 'ProductInfo',
     data: function() {
         return {
-            qtyValue: 1
-    }
+            qtyValue: 1,
+            currentProductCode: this.$route.params.id,
+            activeProduct: [],
+            products: [
+                {
+                    id: 1,
+                    productCode: 123,
+                    img: 'product1.jpg', 
+                    imgAlt: 'Black Long Sleeved Sweatshirt 1',
+                    class: 'small',
+                    productName: 'AVE CLASSIC SWEATSHIRT',
+                    productDescription: 'Classic casual long sleeved shirt for men on the move. 100% cotton.'
+                },
+                {
+                    id: 1,
+                    productCode: 231,
+                    img: 'product2.jpg', 
+                    imgAlt: 'Black Long Sleeved Sweatshirt',
+                    class: 'small',
+                    productName: 'Black Long Sleeved Sweatshirt 2',
+                    productDescription: 'Classic casual long sleeved shirt for men on the move. 100% cotton.'
+                },
+                                {
+                    id: 1,
+                    productCode: 321, 
+                    img: 'product3.jpg', 
+                    imgAlt: 'Black Long Sleeved Sweatshirt',
+                    class: 'big',
+                    productName: 'Black Long Sleeved Sweatshirt 3',
+                    productDescription: 'Classic casual long sleeved shirt for men on the move. 100% cotton.'
+                },
+                {
+                    id: 1,
+                    productCode: 345, 
+                    img: 'product4.jpg', 
+                    imgAlt: 'Black Long Sleeved Sweatshirt 4',
+                    class: 'big',
+                    productName: 'Black Long Sleeved Sweatshirt',
+                    productDescription: 'Classic casual long sleeved shirt for men on the move. 100% cotton.'
+                },
+                {
+                    id: 1,
+                    productCode: 453, 
+                    img: 'product5.jpg', 
+                    imgAlt: 'Black Long Sleeved Sweatshirt',
+                    class: 'small',
+                    productName: 'Black Long Sleeved Sweatshirt 5',
+                    productDescription: 'Classic casual long sleeved shirt for men on the move. 100% cotton.'
+                },
+                {
+                    id: 1,
+                    productCode: 543, 
+                    img: 'product6.jpg', 
+                    imgAlt: 'Black Long Sleeved Sweatshirt',
+                    class: 'small',
+                    productName: 'Black Long Sleeved Sweatshirt 6',
+                    productDescription: 'Classic casual long sleeved shirt for men on the move. 100% cotton.'
+                },
+            ],
+        }
+    },
+   methods: {
+       // Filters array containing all products, finds the one where the product code matches the url parameter
+       // Pushes each item of the objects into a new array and returns it, so it can be accessed.
+        filter: function() {
+            var pCode = this.currentProductCode;
+            var allProducts = this.products
+            var currentProduct = this.activeProduct;
+
+            allProducts = this.products.filter(function(item) {
+                return item.productCode == pCode;
+            })
+
+            allProducts.forEach(element => {
+                currentProduct.push(element)
+            });
+
+            return currentProduct;
+            
+        }
+    },
+    // When component is created
+    created(){
+        // Run this function
+        this.filter()
     }
 }
 </script>

@@ -3,6 +3,7 @@
 
     <Header v-bind:HeadlineOne="TitleOne" v-bind:HeadlineTwo="TitleTwo"/>
 
+
     <section class="product-section">
 
         <ProductImgSlider class="productSlider"/>
@@ -33,7 +34,7 @@ export default {
   data: function() {
     return {
       TitleOne: 'PRODUCT VIEW',
-      TitleTwo: 'GET THIS DYNAMICALLY'
+      TitleTwo: 'GET THIS DYNAMICALLY',
     }
   }
 

@@ -13,13 +13,19 @@
 
         <div class="content">
 
-            <div class="content-container" v-for="data in filter(activetab)" :key="data.id" v-bind:class="data.class">
+            <div class="content-container" v-for="data in filter(activetab)" :key="data.productCode" v-bind:class="data.class" @click="goToProduct(data.productCode)">
                 <div class="test">
                     <div class="img-container" v-bind:class="data.class">
                         <img class="product-img" v-bind:src="require('@/assets/' + data.img)" v-bind:alt="data.imgAlt">
                     </div>
                     <div class="product-info">
-                        Hoveered
+                        <h5 class="product-info__headline">{{data.productName}}</h5>
+                        <p class="product-info__description">{{data.productDescription}}</p>
+                        <div class="product-info__buttons-container">
+                            <button class="round-icon-button"><i class="round-icon-button__icon fas fa-shopping-cart"></i></button>
+                            <button class="round-icon-button"><i class="round-icon-button__icon fas fa-heart"></i></button>
+                            <button class="round-icon-button"><i class="round-icon-button__icon fas fa-compress-arrows-alt"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -38,47 +44,63 @@ export default {
     name: 'Products',
     data: function() {
         return {
-    
             activetab: 1,
             // Static tab content
             tabs: [
                 {
-                    id: 1, 
+                    id: 1,
+                    productCode: 123,
                     img: 'product1.jpg', 
                     imgAlt: 'Black Long Sleeved Sweatshirt',
-                    class: 'small'
+                    class: 'small',
+                    productName: 'Black Long Sleeved Sweatshirt',
+                    productDescription: 'Classic casual long sleeved shirt for men on the move. 100% cotton.'
                 },
                 {
-                    id: 1, 
+                    id: 1,
+                    productCode: 231,
                     img: 'product2.jpg', 
                     imgAlt: 'Black Long Sleeved Sweatshirt',
-                    class: 'small'
+                    class: 'small',
+                    productName: 'Black Long Sleeved Sweatshirt',
+                    productDescription: 'Classic casual long sleeved shirt for men on the move. 100% cotton.'
                 },
                                 {
-                    id: 1, 
+                    id: 1,
+                    productCode: 321, 
                     img: 'product3.jpg', 
                     imgAlt: 'Black Long Sleeved Sweatshirt',
-                    class: 'big'
+                    class: 'big',
+                    productName: 'Black Long Sleeved Sweatshirt',
+                    productDescription: 'Classic casual long sleeved shirt for men on the move. 100% cotton.'
                 },
                 {
-                    id: 1, 
+                    id: 1,
+                    productCode: 345, 
                     img: 'product4.jpg', 
                     imgAlt: 'Black Long Sleeved Sweatshirt',
-                    class: 'big'
+                    class: 'big',
+                    productName: 'Black Long Sleeved Sweatshirt',
+                    productDescription: 'Classic casual long sleeved shirt for men on the move. 100% cotton.'
                 },
                 {
-                    id: 1, 
+                    id: 1,
+                    productCode: 453, 
                     img: 'product5.jpg', 
                     imgAlt: 'Black Long Sleeved Sweatshirt',
-                    class: 'small'
+                    class: 'small',
+                    productName: 'Black Long Sleeved Sweatshirt',
+                    productDescription: 'Classic casual long sleeved shirt for men on the move. 100% cotton.'
                 },
                 {
-                    id: 1, 
+                    id: 1,
+                    productCode: 543, 
                     img: 'product6.jpg', 
                     imgAlt: 'Black Long Sleeved Sweatshirt',
-                    class: 'small'
+                    class: 'small',
+                    productName: 'Black Long Sleeved Sweatshirt',
+                    productDescription: 'Classic casual long sleeved shirt for men on the move. 100% cotton.'
                 },
-
             ],
         }
     },
@@ -87,9 +109,11 @@ export default {
             return this.tabs.filter(function(tab) {
                 return tab.id === activetab
             })
+        },
+        goToProduct: function(proName) {
+            this.$router.push({name:'product',params:{id:proName}})
         }
     }
-
 }
 </script>
 
@@ -205,7 +229,6 @@ export default {
     align-items: center;
     background-color: #f8f8f8;
     width: 100%;
-
 }
 
     .product-info {
@@ -215,7 +238,46 @@ export default {
         background-color: #ffffff;
         flex-direction: column;
         align-items: center;
+        text-align: center;
         z-index: 999;
+        padding: 10px 5px 10px 5px;
+        -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+        -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+        box-sizing: border-box;
+
+        .product-info__headline {
+            color: #727272;
+            margin-bottom: 5px;
+        }   
+
+        .product-info__description {
+            font-size: 0.8em;
+            color: #a5a3a3;
+        }
+
+        .product-info__buttons-container {
+            width: 120px;
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+
+            .round-icon-button {
+                background-color: #727272;
+                border: none;
+                border-radius: 50%;
+                height: 30px;
+                width: 30px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #00c8c8;
+                }
+
+                .round-icon-button__icon {
+                    color: #ffffff;
+                }
+            }
+        }
     }
 
 .big {
