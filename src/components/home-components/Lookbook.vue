@@ -68,7 +68,7 @@ export default {
         @media only screen and (min-width : 320px) and (max-width : 480px) {
             max-width: 320px;
             margin-top: 20px;
-            padding: 50px 20px 50px 20px;
+            padding: 20px 0px 20px 0px;
         }
 
 

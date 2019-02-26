@@ -83,6 +83,7 @@ export default {
      @media only screen and (min-width : 320px) and (max-width : 480px) {
           flex-direction: column;
           align-items: center;
+          padding: 30px 0px 30px 0px;
       }
 
      .list-container {

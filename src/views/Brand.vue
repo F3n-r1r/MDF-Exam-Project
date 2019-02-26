@@ -93,9 +93,13 @@ export default {
     display: flex;
     flex-direction: column;
     width: 320px;
+    padding: 50px 0px 100px 0px;
   }
 
 
+.brand-section-container {
+  padding: 0px 10px 0px 10px;
+}
 
 
 // First row
@@ -127,6 +131,7 @@ export default {
 
         @media only screen and (min-width : 320px) and (max-width : 480px) {
       margin-bottom: 50px;
+      padding: 0px 10px 0px 10px;
     }
   }
 
@@ -136,6 +141,11 @@ export default {
      grid-column: 7 / -1;
     grid-row: 2 / 3;
     margin-bottom: 50px;
+
+            @media only screen and (min-width : 320px) and (max-width : 480px) {
+   
+      padding: 0px 10px 0px 10px;
+    }
   }
   .brand-section__container--5 { // img
     height: 400px;
@@ -150,6 +160,11 @@ export default {
     .brand-section__container--4 {
      grid-column: 7 / -1;
     grid-row: 8 / 10;
+
+            @media only screen and (min-width : 320px) and (max-width : 480px) {
+
+      padding: 0px 10px 0px 10px;
+    }
   }
 
   .brand-section__container--7 { // last
@@ -161,6 +176,7 @@ export default {
 
     @media only screen and (min-width : 320px) and (max-width : 480px) {
       flex-wrap: wrap;
+      padding: 0px 10px 0px 10px;
     }
 
     .awardImg {

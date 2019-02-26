@@ -58,7 +58,6 @@ export default {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 0px 10px 0px 10px;
         }
 
         .productInfo {

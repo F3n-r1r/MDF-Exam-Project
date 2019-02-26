@@ -87,7 +87,7 @@ export default {
         user-select: none;
 
         @media only screen and (min-width : 320px) and (max-width : 480px) {
-            max-width: 320px;
+            max-width: 300px;
             min-height: 300px;
         }
 
@@ -102,7 +102,6 @@ export default {
             @media only screen and (min-width : 320px) and (max-width : 480px) {
                 position: relative;
                 height: 400px;
-                width: 320px;
             }
 
             .img-container__img {

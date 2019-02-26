@@ -1,5 +1,6 @@
 <template>
     <div class="info-container">
+        <div class="test">
         <h3>{{ activeProduct[0].productName }}</h3>
 
         <div class="info-container__social">
@@ -112,6 +113,7 @@
             <button class="btn"><i class="icon far fa-heart"></i>ADD TO LOOKBOOK</button>
             <button class="btn btn--no-border"><i class="icon fas fa-compress-arrows-alt"></i>ADD TO COMPARE</button>
         </div>
+        </div>
     </div>
 
 </template>
@@ -214,7 +216,9 @@ export default {
 
 
 <style scoped lang="scss">
-
+.test {
+    padding: 0px 10px 0px 10px;
+}
     .info-container {
         position: relative;
         display: flex;

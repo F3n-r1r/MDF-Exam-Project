@@ -11,8 +11,9 @@
 
     <section class="section-main">
       <div class="form-container">
-        <h3>SIGN IN</h3>
+        
         <form class="form" action="" @submit="checkLogin" novalidate="true">
+          <h3 class="headline">SIGN IN</h3>
           <input class="form__input" type="email" name="email" placeholder="Your Email.." v-model="signinemail" v-bind:class="{error: signinemailerr}">
           <input class="form__input" type="password" name="password" placeholder="Your Password" v-model="signinpassword" v-bind:class="{error: signinpasserr}">
           <div class="row">
@@ -25,8 +26,8 @@
       <div class="vl"></div>
 
       <div class="form-container">
-        <h3>REGISTER</h3>
         <form class="form" action="" @submit="checkRegister" novalidate="true">
+                  <h3 class="headline">REGISTER</h3>
           <input class="form__input" type="email" name="email" placeholder="Your Email.." v-model="registerEmail" v-bind:class="{error: registeremailerr}">
           <input class="form__input" type="password" name="password" placeholder="Your Password" v-model="registerPassword" v-bind:class="{error: registerpasserr}">
           <input class="form__input" type="password" name="password" placeholder="Confirm Password" v-model="confirmedPassword" v-bind:class="{error: confirmpasserr}">
@@ -182,7 +183,7 @@ export default {
       flex-direction: column;
       align-items: center;
       width: 320px;
-      padding: 0px 20px 0px 20px;
+      padding-bottom: 50px;
   }
 
 
@@ -192,9 +193,20 @@ export default {
     padding: 50px 20px 50px 20px;
     width: 100%;
 
+    @media only screen and (min-width : 320px) and (max-width : 480px) {
+      flex-direction: column;
+      align-items: center;
+      width: 320px;
+      padding: 50px 0px 0px 0px;
+  }
+
     .form {
       display: flex;
       flex-direction: column;
+
+      @media only screen and (min-width : 320px) and (max-width : 480px) {
+        padding: 10px;
+      }
 
       .form__input {
         padding: 10px;

@@ -135,6 +135,7 @@ export default {
       
     @media only screen and (min-width : 320px) and (max-width : 480px) {
       min-width: 320px;
+      padding: 0;
     }
 
     .products-section__tabs {
@@ -143,6 +144,7 @@ export default {
         @media only screen and (min-width : 320px) and (max-width : 480px) {
             overflow: hidden;
             overflow-x: scroll;
+            padding: 0px 10px 10px 10px;
         }
 
         & a{
