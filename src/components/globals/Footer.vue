@@ -69,78 +69,73 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 
-.footer {
-   background-color: #f8f8f8;
+  @import "../../styles/utilities/mixins.scss";
+  @import "../../styles/utilities/vars.scss";
+
+  .footer {
+    background-color: $color-lightgrey;
 
    .wrapper {
      margin: auto;
-     max-width: 1024px;
+     max-width: $width-medium;
      padding: 30px;
-     display: flex;
-     justify-content: space-between;
+     @include flexrow-sb;
      flex-wrap: wrap;
 
-     @media only screen and (min-width : 320px) and (max-width : 480px) {
-          flex-direction: column;
-          align-items: center;
-          padding: 30px 0px 30px 0px;
-      }
+    @include media-query(small) {
+      @include flexcolumn-cv;
+      padding: 30px 0px 30px 0px;
+    }
 
      .list-container {
-      margin-bottom: 20px;
-      list-style-type: none;
+        margin-bottom: 20px;
+        list-style-type: none;
 
-      @media only screen and (min-width : 320px) and (max-width : 480px) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
+        @include media-query(small) {
+          @include flexcolumn-cv;
+        }
 
-      .list-container__heading {
-        margin-bottom: 15px;
-        color: #575153;
-      }
+        .list-container__heading {
+          margin-bottom: 15px;
+          color: $color-darkgrey;
+        }
 
-      .list-container__item {
-        margin-bottom: 10px;
-        color: #727272;
+        .list-container__item {
+          margin-bottom: 10px;
+          color: lighten($color-darkgrey, 20%);
 
-        a {
-          text-decoration: none;
-          color: #727272;
+          a {
+            text-decoration: none;
+            color: lighten($color-darkgrey, 20%);
 
-          &:visited {
-            color: #727272;
+            &:visited {
+              color: lighten($color-darkgrey, 20%);
+            }
           }
         }
-      }
      }
 
      .block-container {
-       position: relative;
-       flex: 1;
-       display: flex;
-       flex-wrap: wrap;
-       justify-content: space-between;
+      position: relative;
+      flex: 1;
+      @include flexrow-sb;
+      flex-wrap: wrap;
 
-        @media only screen and (min-width : 320px) and (max-width : 480px) {
-            justify-content: center;
-        }
+      @include media-query(small) {
+        @include flexrow-ch;
+      }
 
         .award-container {
-          display: flex;
+          @include flexcolumn-cc;
           flex: 0 0 45%;
           height: 100px;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          background-color: #333333;
+          background-color: $color-darkgrey;
           padding: 40px 20px 40px 20px;
           line-height: 1.6;
-          color: #ffffff;
+          color: $color-white;
           white-space: nowrap;
 
-          @media only screen and (min-width : 320px) and (max-width : 480px) {
+          @include media-query(small) {
             min-width: 250px;
             font-size: 0.6em;
             margin-top: 20px;
@@ -148,12 +143,12 @@ export default {
        }
 
         .social-media-container {
-          background-color: #00c8c8;
+          background-color: $color-cyan;
           flex: 0 0 45%;
           height: 100px;
           padding: 40px 20px 40px 20px;
 
-          @media only screen and (min-width : 320px) and (max-width : 480px) {
+          @include media-query(small) {
             margin-top: 25px;
             min-width: 250px;
           }
@@ -171,10 +166,10 @@ export default {
 
                  a {
                   text-decoration: none;
-                  color: #ffffff;
+                  color: $color-white;
 
                   &:visited {
-                    color: #ffffff;
+                    color: $color-white;
                   }
                 }
             }

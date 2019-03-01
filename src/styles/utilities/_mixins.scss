@@ -1,0 +1,143 @@
+@import "vars.scss";
+
+// Media query mixin
+@mixin media-query($size) {
+    @if $size == small {
+        @media only screen and (min-width : 320px) and (max-width : 480px) {
+            @content;
+        }
+    } @else if $size == medium {
+        @media only screen and (min-width : 481px) and (max-width : 768px) {
+            @content;
+        }
+    } @else if $size == large {
+        @media only screen and (min-width : 769px) {
+            @content;
+        }
+    }
+}
+
+// Background mixin
+@mixin background-image($img, $position){
+    background-image: url($img);
+    background-position: $position;
+    background-repeat: no-repeat;
+}
+
+
+// Button mixins
+@mixin primary-button(){
+    color: $color-darkgrey;
+    white-space: nowrap;
+    font-weight: bold;
+    border: 1px solid $color-darkgrey;
+    padding: 15px 25px 15px 25px;
+    font-family: $font-main;
+    background-color: $color-lightgrey;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $color-cyan;
+        color: $color-white;
+    }
+}
+
+@mixin secondary-button(){
+    padding: 10px 35px 10px 35px;
+    font-family: $font-main;
+    background-color: $color-white;
+    color: $color-darkgrey;
+    white-space: nowrap;
+    font-weight: bold;
+    border: 2px solid $color-darkgrey;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $color-darkgrey;
+        color: $color-white;
+    }
+}
+
+
+// Layout mixins
+@mixin flexrow-cc() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexrow-sbcv() {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+}
+
+@mixin flexrow-ch() {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin flexrow-cv() {
+    display: flex;
+    align-items: center;
+}
+@mixin flexrow-ce() {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+@mixin flexrow-sb() {
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin flexrow-sa() {
+    display: flex;
+    justify-content: space-around;
+}
+
+@mixin flexcolumn() {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flexcolumn-cv() {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@mixin flexcolumn-sb() {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+@mixin flexcolumn-cc(){
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+@mixin grid($row-gap, $column-gap, $rows) {
+    display: grid;
+    grid-row-gap: $row-gap;
+    grid-column-gap: $column-gap;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: $rows;
+}
+
+@mixin grid-item-position($column1, $column2, $row1, $row2){
+    grid-column-start: $column1;
+    grid-column-end: $column2;
+    grid-row-start: $row1;
+    grid-row-end: $row2;
+}
+
+@mixin grid-item-span($rowspan, $columnspan) {
+    grid-row: $rowspan;
+    grid-column: $columnspan;
+}

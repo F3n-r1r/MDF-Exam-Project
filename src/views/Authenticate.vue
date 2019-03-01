@@ -1,33 +1,32 @@
 <template>
   <div class="auth-container">
+    
     <Header v-bind:HeadlineOne="HeadlineOne" v-bind:HeadlineTwo="HeadlineTwo"/>
 
     <div class="error-container" v-if="errors.length">
       <p>Please correct the following errors:</p>
-      <ul class="error-list">
-        <li class="error-list--item" v-for="error in errors" v-bind:key="error">- {{error}}</li>
+      <ul class="error-container__error-list">
+        <li v-for="error in errors" v-bind:key="error">- {{error}}</li>
       </ul>
     </div>
 
     <section class="section-main">
+
       <div class="form-container">
-        
         <form class="form" action="" @submit="checkLogin" novalidate="true">
           <h3 class="headline">SIGN IN</h3>
           <input class="form__input" type="email" name="email" placeholder="Your Email.." v-model="signinemail" v-bind:class="{error: signinemailerr}">
           <input class="form__input" type="password" name="password" placeholder="Your Password" v-model="signinpassword" v-bind:class="{error: signinpasserr}">
           <div class="row">
-            <input class="btn small" type="submit" value="SIGN IN">
+            <input class="btn" type="submit" value="SIGN IN">
             <a class="link" href="#">Forgot your password <i class="icon fas fa-long-arrow-alt-right"></i></a>
           </div>
         </form>
       </div>
 
-      <div class="vl"></div>
-
       <div class="form-container">
         <form class="form" action="" @submit="checkRegister" novalidate="true">
-                  <h3 class="headline">REGISTER</h3>
+          <h3 class="headline">REGISTER</h3>
           <input class="form__input" type="email" name="email" placeholder="Your Email.." v-model="registerEmail" v-bind:class="{error: registeremailerr}">
           <input class="form__input" type="password" name="password" placeholder="Your Password" v-model="registerPassword" v-bind:class="{error: registerpasserr}">
           <input class="form__input" type="password" name="password" placeholder="Confirm Password" v-model="confirmedPassword" v-bind:class="{error: confirmpasserr}">
@@ -36,11 +35,12 @@
             <label class="label" for="checkbox">Sign up for exclusive updates, discounts, new arrivals, contests, and more!</label>
           </div>
           <div class="row">
-            <input class="btn big" type="submit" value="CREATE ACCOUNT">
+            <input class="btn" type="submit" value="CREATE ACCOUNT">
             <p class="info-text">By clicking 'Create Account', you agree to our <a class="link" href="#">Privacy Policy <i class="icon fas fa-long-arrow-alt-right"></i></a></p>
           </div>
         </form>
       </div>
+
     </section>
 
   </div>
@@ -48,10 +48,12 @@
 
 <script>
 import Header from '@/components/globals/Header.vue'
+
 export default {
   components: {
     Header
   },
+
   data: function() {
         return {
           HeadlineOne: 'WELCOME TO AVE',
@@ -72,6 +74,7 @@ export default {
           confirmedPassword: null
         }
   },
+
   methods: {
     checkLogin: function(e) {
       this.errors = [];
@@ -93,9 +96,8 @@ export default {
         return true;
       }
       e.preventDefault();
-
-      // In real application: Find mail in the database, if found then compare password and create token.
     },
+
     checkRegister: function(e) {
       this.errors = [];
 
@@ -127,13 +129,13 @@ export default {
         return true;
       }
       e.preventDefault();
-
-      // In real application: Call function to store email and a hashed version of the password in the database
     },
+
     validateEmail: function(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
     },
+
     validatePassword: function(password) {
       if(password.length >= 8) {
         return true
@@ -148,166 +150,117 @@ export default {
 
 <style scoped lang="scss">
 
-.error-container {
-  display: flex;
-  padding: top;
-  margin:  20px auto 0px auto;
-  padding: 10px;
-  flex-direction: column;
-  max-width: 1024px;
-  background-color: #fcf6f7;
-  border: 1px solid #bb5465;
+  @import "../styles/utilities/mixins.scss";
+  @import "../styles/utilities/vars.scss";
 
-  .error-list {
-    margin-top: 10px;
-    list-style-type: none;
+  .error-container {
+    margin:  20px auto 0px auto;
+    padding: 10px;
+    max-width: $width-medium;
+    background-color: lighten($color-red, 43%);
+    border: 1px solid $color-red;
 
-    .error-list__item {
+    .error-container__error-list {
+      margin-top: 10px;
       list-style-type: none;
     }
   }
-}
 
-.error {
-  background-color: #fcf6f7;
-  border: 1px solid #bb5465;
-}
+  .error {
+    background-color: lighten($color-red, 43%);
+    border: 1px solid $color-red;
+  }
 
-.section-main {
-  margin: auto;
-  width: 1024px;
-  display: flex;
-  justify-content: center;
-    
-  @media only screen and (min-width : 320px) and (max-width : 480px) {
-      flex-direction: column;
-      align-items: center;
-      width: 320px;
+  .section-main {
+    margin: auto;
+    width: $width-medium;
+    @include flexrow-ch;
+
+    @include media-query(small) {
+      @include flexcolumn-cv;
+      width: $width-small;
       padding-bottom: 50px;
-  }
-
-
-
-
-  .form-container {
-    padding: 50px 20px 50px 20px;
-    width: 100%;
-
-    @media only screen and (min-width : 320px) and (max-width : 480px) {
-      flex-direction: column;
-      align-items: center;
-      width: 320px;
-      padding: 50px 0px 0px 0px;
-  }
-
-    .form {
-      display: flex;
-      flex-direction: column;
-
-      @media only screen and (min-width : 320px) and (max-width : 480px) {
-        padding: 10px;
-      }
-
-      .form__input {
-        padding: 10px;
-        margin-top: 25px;
-      }
-
-      input[type="checkbox"] {
-        display: none;
-      }
-      input[type="checkbox"] + label:before {
-        border: 1px solid #8e8c8c;
-        content: "\00a0";
-        display: inline-block;
-        height: 16px;
-        margin: 0px 15px 0px 0px;
-        vertical-align: top;
-        width: 16px;
-      }
-      input[type="checkbox"]:checked + label:before {
-        background: #fff;
-        content: "\2713";
-        text-align: center;
-      }
-      input[type="checkbox"]:checked + label:after {
-        font-weight: bold;
-      }
-
-      .label {
-        color: #8e8c8c;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 0.7em;
-        white-space: nowrap;
-
-        @media only screen and (min-width : 320px) and (max-width : 480px) {
-          white-space:pre-wrap;
-        }
-      }
-
-
-
-      .row {
-        margin-top: 25px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .btn {
-          color: #454647;
-          white-space: nowrap;
-          font-weight: bold;
-          border: 1px solid #454647;
-          background-color: #f8f8f8;
-          margin-right: 10px;
-          padding: 15px 25px 15px 25px;
-          font-family: 'Montserrat', sans-serif;
-
-          &:focus {
-            outline: none;
-          }
-
-          &:hover {
-            cursor: pointer;
-            background-color: #00c8c8;
-            color: #ffffff;
-          }
-
-          .big {
-            width: 200px;
-          }
-          .small {
-            width: 100px;
-          }
-        }
-
-        .link {
-          text-decoration: none;
-          color: #00c8c8;
-          white-space: nowrap;
-
-          .icon {
-            margin-left: 5px;
-          }
-        }
-
-        .info-text {
-          font-size: 0.8em;
-          width: 250px;
-        }
-      }
-
-
     }
+  
+      .form-container {
+        padding: 50px 20px 50px 20px;
+        width: 100%;
+
+        @include media-query(small) {
+          width: $width-small;
+          padding: 50px 0px 0px 0px;
+        }
+
+          .form {
+            display: flex;
+            flex-direction: column;
+
+            @include media-query(small) {
+              padding: 10px;
+            }
+
+              .form__input {
+                padding: 10px;
+                margin-top: 25px;
+              }
+
+              input[type="checkbox"] {
+                display: none;
+              }
+
+              input[type="checkbox"] + label:before {
+                border: 1px solid $color-darkgrey;
+                content: "\00a0";
+                display: inline-block;
+                height: 16px;
+                margin: 0px 15px 0px 0px;
+                vertical-align: top;
+                width: 16px;
+              }
+
+              input[type="checkbox"]:checked + label:before {
+                background: $color-white;
+                content: "\2713";
+                text-align: center;
+              }
+
+              .label {
+                color: $color-darkgrey;
+                font-family: $font-main;
+                font-size: 0.7em;
+                white-space: nowrap;
+
+                @include media-query(small) {
+                  white-space:pre-wrap;
+                }
+              }
+
+              .row {
+                margin-top: 25px;
+                @include flexrow-sbcv;
+
+                .btn {
+                  @include primary-button;
+                  margin-right: 10px;
+                }
+
+                .link {
+                  text-decoration: none;
+                  color: $color-cyan;
+                  white-space: nowrap;
+
+                  .icon {
+                    margin-left: 5px;
+                  }
+                }
+
+                .info-text {
+                  font-size: 0.8em;
+                  width: 250px;
+                }
+              }
+          }
+        }
   }
-
-  .vl {
-    position: relative;
-    height: 100%;
-    border-right: 6px solid red;
-  }
-
-
-}
 
 </style>

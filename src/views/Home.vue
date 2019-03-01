@@ -4,19 +4,18 @@
     <section class="banner">
       <div class="wrapper">
         <h1 class="companyLogo"><span>A</span><span>V</span><span>E</span></h1>
-        <button class="primary-btn">SHOP MEN'S COLLECTION</button>
+
       </div>    
     </section>
 
-  <Products />
+    <Products />
 
-  <Lookbook />
+    <Lookbook />
 
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import Lookbook from '@/components/home-components/Lookbook.vue'
 import Products from '@/components/home-components/Products.vue'
 
@@ -29,91 +28,57 @@ export default {
 </script>
 
 
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 
-.home {
-  background-color: #ffffff;
-}
+  @import "../styles/utilities/mixins.scss";
+  @import "../styles/utilities/vars.scss";
 
   .banner {
-    position: relative;
     height: 920px;
-    background-color: #f8f8f8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 1024px;
-    
-    @media only screen and (min-width : 320px) and (max-width : 480px) {
+    background-color: $color-lightgrey;;
+    @include flexrow-cc;
+    min-width: $width-medium;
+
+    @include media-query(small) {
         height: 460px;
-        min-width: 320px;
+        min-width: $width-small;
     }
 
-  }
-
-.wrapper {
-    background-image: url("../assets/bgImgHomeLarge.png");
-  
-    background-position: left;
-    background-repeat: no-repeat;
-
-  position: relative;
-  width: 1440px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0px 50px 0px 50px;
-
-    
-    @media only screen and (min-width : 320px) and (max-width : 480px) {
-        background-image: url("../assets/bgImgHomeSmall.png");
-        width: 100%;
+      .wrapper {
+        position: relative;
+        @include background-image("../assets/bgImgHomeLarge.png", left);
+        width: $width-big;
+        height: 100%;
+        @include flexrow-cc;
+        padding: 0px 50px 0px 50px;
         
-    }
+        @include media-query(small) {
+          @include background-image("../assets/bgImgHomeSmall.png", center);
+        }
 
-  .companyLogo {
-    font-size: 20em;
-    color: #575153;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    
-    @media only screen and (min-width : 320px) and (max-width : 480px) {
-        font-size: 5em;
-    }
+          .companyLogo {
+            font-size: 20em;
+            color: $color-darkgrey;
+            @include flexrow-sb;
+            width: 100%;
+
+            @include media-query(small) {
+              font-size: 5em;
+            }
+          }
+
+          .primary-btn {
+            position: absolute;
+            right: 25px;
+            bottom: 150px;
+            align-self: flex-end;
+            @include primary-button;
+
+            @include media-query(small) {
+              bottom: 20px;
+            }
+          }
+      }
   }
-
-  .primary-btn {
-    position: absolute;
-    right: 25px;
-    bottom: 150px;
-    align-self: flex-end;
-    color: #454647;
-    white-space: nowrap;
-    font-weight: bold;
-    border: 1px solid #454647;
-    background-color: #f8f8f8;
-    padding: 15px 25px 15px 25px;
-    font-family: 'Montserrat', sans-serif;
-
-    @media only screen and (min-width : 320px) and (max-width : 480px) {
-        bottom: 20px;
-    }
-
-    &:focus {
-      outline: none;
-    }
-
-    &:hover {
-      cursor: pointer;
-      background-color: #00c8c8;
-      color: #ffffff;
-    }
-  }
-}
-
 
 </style>

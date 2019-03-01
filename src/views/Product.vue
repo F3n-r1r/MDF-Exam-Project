@@ -3,7 +3,6 @@
 
     <Header v-bind:HeadlineOne="TitleOne" v-bind:HeadlineTwo="TitleTwo"/>
 
-
     <section class="product-section">
 
         <ProductImgSlider class="productSlider"/>
@@ -31,38 +30,31 @@ export default {
     ProductTabs,
     ProductImgSlider
   },
+
   data: function() {
     return {
       TitleOne: 'PRODUCT VIEW',
       TitleTwo: 'GET THIS DYNAMICALLY',
     }
   }
-
 }
 </script>
 
 
 <style scoped lang="scss">
 
-    .product-section {
-        margin: 50px auto 100px auto;
-        width: 1024px;
-        display: grid;
-        grid-row-gap: 30px;
-        grid-column-gap: 30px;
-        grid-template-columns: repeat(12, 1fr);
-        grid-auto-rows: auto;
+  @import "../styles/utilities/mixins.scss";
+  @import "../styles/utilities/vars.scss";
 
-        @media only screen and (min-width : 320px) and (max-width : 480px) { //480
-            max-width: 320px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+  .product-section {
+      margin: 50px auto 100px auto;
+      width: $width-medium;
+      @include grid(30px, 30px, auto);
 
-        .productInfo {
-          width: 100%;
-        }
-    }
+      @include media-query(small) {
+        max-width: $width-small;
+        @include flexcolumn-cv;
+      }
+  }
     
 </style>

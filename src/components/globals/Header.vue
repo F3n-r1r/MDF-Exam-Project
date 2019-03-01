@@ -17,44 +17,45 @@ export default {
 
 <style scoped lang="scss">
 
-.header {
+  @import "../../styles/utilities/mixins.scss";
+  @import "../../styles/utilities/vars.scss";
+
+  .header {
     background-image: url('../../assets/bannerBg.jpg');
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
     height: 450px;
 
     .overlay {
-        background-color: rgba(97, 97, 97, 0.8);
-        height: 100%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+      background-color: rgba(97, 97, 97, 0.8);
+      height: 100%;
+      width: 100%;
+      @include flexcolumn-cc;
 
-        .headline {
-            color: #ffffff;
-            font-family: 'Montserrat', sans-serif;
-            white-space: nowrap;
-        }
+      .headline {
+        color: $color-white;
+        font-family: $font-main;
+        white-space: nowrap;
+      }
 
-        .big {
-            font-size: 4em;
+      .big {
+        font-size: 4em;
 
-      @media only screen and (min-width : 320px) and (max-width : 480px) {
+        @include media-query(small) {
           font-size: 2em;
-      }
         }
+      }
 
-        .small {
-            font-size: 2em;
-            margin-top: 20px;
+      .small {
+        font-size: 2em;
+        margin-top: 20px;
 
-                  @media only screen and (min-width : 320px) and (max-width : 480px) {
+        @include media-query(small) {
           font-size: 1em;
-      }
         }
+      }
     }
-}
+  }
 
 </style>

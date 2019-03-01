@@ -27,25 +27,29 @@ export default {
 
 
 <style lang="scss">
+
+  @import "./styles/utilities/mixins.scss";
+  @import "./styles/utilities/vars.scss";
+
   * {
     padding: 0;
     margin: 0;
   }
 
   #app {
-    min-width: 1440px;
+    min-width: $width-big;
 
-    @media only screen and (min-width : 320px) and (max-width : 480px) {
-      min-width: 320px;
-    }
+      @include media-query(small) {
+        min-width: $width-small;
+      }
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Roboto', sans-serif;
+    font-family: $font-sec;
   }
 
   p {
-    font-family: 'Montserrat', sans-serif;
-
+    font-family: $font-main;
   }
+
 </style>

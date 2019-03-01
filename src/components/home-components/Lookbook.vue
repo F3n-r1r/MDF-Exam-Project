@@ -44,109 +44,87 @@ export default {
 
 <style scoped lang="scss">
 
-.lookbook-section {
+  @import "../../styles/utilities/mixins.scss";
+  @import "../../styles/utilities/vars.scss";
+
+  .lookbook-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     grid-gap: 10px;
     margin: 0px auto 75px auto;
 
-            
-    @media only screen and (min-width : 320px) and (max-width : 480px) {
-        min-width: 320px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    @include media-query(small) {
+      min-width: $width-small;
+      @include flexcolumn-cv;
     }
 
-    .lookbook-section__container {
-        background-color: #f8f8f8;
+      .lookbook-section__container {
+        background-color: $color-lightgrey;
         padding: 50px 20px 0px 20px;
         display: flex;
         justify-content: space-around;
 
-
-        @media only screen and (min-width : 320px) and (max-width : 480px) {
-            max-width: 320px;
-            margin-top: 20px;
-            padding: 20px 0px 20px 0px;
+        @include media-query(small) {
+          max-width: $width-small;
+          margin-top: 20px;
+          padding: 20px 0px 20px 0px;
         }
 
-
-        .lookbook-quickView__element__img {
+          .lookbook-quickView__element__img {
             height: 400px;
             margin-top: 0;
 
-            @media only screen and (min-width : 320px) and (max-width : 480px) {
-                display: none;
+            @include media-query(small) {
+              display: none;
             }
-        }
+          }
 
-        .lookbook-quickView__element__info {
-            display: flex;
-            flex-direction: column;
-
-
+          .lookbook-quickView__element__info {
+            @include flexcolumn;
 
             .look-quickView-heading--bold {
-                margin-left: auto;
-                font-size: 3em;
-                color: #575153;
-                font-family: 'Roboto', sans-serif;
+              margin-left: auto;
+              font-size: 3em;
+              color: $color-darkgrey;
+              font-family: $font-sec;
 
-
-            
-        @media only screen and (min-width : 320px) and (max-width : 480px) {
-            margin: auto;
-        }
+              @include media-query(small) {
+                margin: auto;
+              }
             }
 
             .look-quickView-heading {
-                margin-left: auto;
-                font-size: 3em;
-                color: #575153;
-                font-family: 'Montserrat', sans-serif;
-                        @media only screen and (min-width : 320px) and (max-width : 480px) {
-            margin: auto;
-        }
+              margin-left: auto;
+              font-size: 3em;
+              color: $color-darkgrey;
+              font-family: $font-main;
+
+              @include media-query(small) {
+                margin: auto;
+              }
             }
 
             .look-quickView-text {
-                text-align: right;
-                max-width: 400px;
-                margin-top: 30px;
-                        @media only screen and (min-width : 320px) and (max-width : 480px) {
-            text-align: center;
-        }
+              text-align: right;
+              margin-top: 30px;
+
+              @include media-query(small) {
+                text-align: center;
+              }
             }
 
             .look-quickView-btn {
-                margin-left: auto;
+              @include primary-button;
+              margin-left: auto;
+              margin-top: 40px;
+
+              @include media-query(small) {
+                margin: auto;
                 margin-top: 40px;
-                color: #454647;
-                white-space: nowrap;
-                font-weight: bold;
-                border: 1px solid #454647;
-                background-color: #f8f8f8;
-                padding: 15px 25px 15px 25px;
-                font-family: 'Montserrat', sans-serif;
-
-                &:focus {
-                    outline: none;
-                }
-
-                &:hover {
-                    cursor: pointer;
-                    background-color: #00c8c8;
-                    color: #ffffff;
-                }
-
-                @media only screen and (min-width : 320px) and (max-width : 480px) {
-                    margin: auto;
-                    margin-top: 40px;
-                }
+              }
             }
-        }
-    }
-}
+          }
+      }
+  }
 
 </style>

@@ -132,7 +132,7 @@
         <router-link class="logo" to="/">AVENUE FASHION</router-link>
         <button v-on:click="showMobileMenu = !showMobileMenu" class="burger" v-bind:class="[ showMobileMenu === true ? 'open' : '' ]"></button>
       <div class="burger-menu-content" v-if="showMobileMenu">
-        <p>dsfdsf</p>
+        <p>Mobile Nav Not Implemented</p>
       </div>
     </nav>
 
@@ -160,148 +160,138 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 
-.mobile-btm-nav {
-    position: relative;
-      height: 60px;
-      padding: 0px 20px 0px 20px;
-      justify-content: space-between;
-      align-items: center;
-      display: none;
+  @import "../../styles/utilities/mixins.scss";
+  @import "../../styles/utilities/vars.scss";
 
-      @media only screen and (min-width : 320px) and (max-width : 480px) {
-        display: flex;
-      }
+  .mobile-btm-nav {
+    position: relative;
+    height: 60px;
+    padding: 0px 20px 0px 20px;
+    display: none;
+
+    @include media-query(small) {
+      @include flexrow-sbcv;
+    }
 
       .logo {
         text-decoration: none;
-        font-family: 'Roboto', sans-serif;
+        font-family: $font-sec;
         font-size: 1em;
         white-space: nowrap;
-        color: #222222 !important;
+        color: $color-darkgrey;
       }
-}
 
+      .burger {
+        border: 0;
+        background: none;
+        outline: 0;
+        padding: 0;
+        cursor: pointer;
+        border-bottom: 4px solid $color-darkgrey;
+        width: 28px;
+        transition: border-bottom 1s ease-in-out;
+        -webkit-transition: border-bottom 1s ease-in-out;
+        z-index: 9999;
 
-.burger-menu-content {
-     position: fixed;
-     overflow: hidden;
-    background-color: #f8f8f8;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-}
+        &::-moz-focus-inner {
+          border: 0;
+          padding: 0;
+        }	 
 
-.burger {
-  border: 0;
-  background: none;
-  outline: 0;
-  padding: 0;
-  cursor: pointer;
-  border-bottom: 4px solid #222222;
-  width: 28px;
-  transition: border-bottom 1s ease-in-out;
-  -webkit-transition: border-bottom 1s ease-in-out;
-  z-index: 9999;
+        &:before {
+          content: "";
+          display: block;
+          border-bottom: 4px solid $color-darkgrey;
+          width: 100%;
+          margin-bottom: 5px;
+          transition: transform 0.5s ease-in-out;    
+          -webkit-transition: -webkit-transform 0.5s ease-in-out;        
+        }
 
+        &:after {
+          content: "";
+          display: block;
+          border-bottom: 4px solid $color-darkgrey;
+          width: 100%;
+          margin-bottom: 5px;
+          transition: transform 0.5s ease-in-out;
+          -webkit-transition: -webkit-transform 0.5s ease-in-out;
+        }
 
-  	// Fix for extra space in Firefox
-	&::-moz-focus-inner {
-		border: 0;
-		padding: 0;
-	}	 
+	      &.open {
+	      	border-bottom: 4px solid $color-cyan;
+          position: fixed;
+          right: 20px;
 
-	&:before {
-		content: "";
-		display: block;
-		border-bottom: 4px solid #222222;
-		width: 100%;
-		margin-bottom: 5px;
-		transition: transform 0.5s ease-in-out;    
-		-webkit-transition: -webkit-transform 0.5s ease-in-out;        
-	}
+		      &:before {
+			      transform: rotate(-405deg) translateY(1px) translateX(-3px);
+		      	-webkit-transform: rotate(-405deg) translateY(1px) translateX(-3px);      
+		      	transition: transform 0.5s ease-in-out;
+		      	-webkit-transition: -webkit-transform 0.5s ease-in-out;
+		      }
 
-	&:after {
-		content: "";
-		display: block;
-		border-bottom: 4px solid #222222;
-		width: 100%;
-		margin-bottom: 5px;
-		transition: transform 0.5s ease-in-out;
-		-webkit-transition: -webkit-transform 0.5s ease-in-out;
-	}
+		      &:after {
+			      transform: rotate(405deg) translateY(-4px) translateX(-5px); 
+		      	-webkit-transform: rotate(405deg) translateY(-4px) translateX(-5px);       
+		      	transition: transform 0.5s ease-in-out;
+		      	-webkit-transition: -webkit-transform 0.5s ease-in-out;
+	      	}
+	      }
+      }
 
-	&.open {
-		border-bottom: 4px solid #00c8c8;
-    position: fixed;
-    right: 20px;
-
-		&:before {
-			transform: rotate(-405deg) translateY(1px) translateX(-3px);
-			-webkit-transform: rotate(-405deg) translateY(1px) translateX(-3px);      
-			transition: transform 0.5s ease-in-out;
-			-webkit-transition: -webkit-transform 0.5s ease-in-out;
-     
-		}
-
-		&:after {
-			transform: rotate(405deg) translateY(-4px) translateX(-5px); 
-			-webkit-transform: rotate(405deg) translateY(-4px) translateX(-5px);       
-			transition: transform 0.5s ease-in-out;
-			-webkit-transition: -webkit-transform 0.5s ease-in-out;
-		}
-	}
-}
-
-
-
-.nav-container {
-  display: flex;
-  flex-direction: column;
-  min-width: 1024px;
-
-  @media only screen and (min-width : 320px) and (max-width : 480px) {
-      min-width: 320px;
+      .burger-menu-content {
+        position: fixed;
+        overflow: hidden;
+        background-color: $color-lightgrey;
+        @include flexrow-cc;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+      }
   }
 
-  .top-nav {
-    height: 40px;
-    background-color: #333333;
+  .nav-container {
+    @include flexcolumn;
+    min-width: $width-medium;
+
+    @include media-query(small) {
+      min-width: $width-small;
+    }
+
+      .top-nav {
+        height: 40px;
+        background-color: darken($color-darkgrey, 10%);
 
     .wrapper-small {
       position: relative;
       margin: auto;
-      width: 1024px;
+      width: $width-medium;
       height: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      @include flexrow-sbcv;
 
-      @media only screen and (min-width : 320px) and (max-width : 480px) {
+      @include media-query(small) {
         width: 100%;
       }
 
-      .currency-container {
-        position: relative;
-        color: #777777;
-        font-weight: bold;
-        font-family: 'Montserrat', sans-serif;
-        white-space: nowrap;
+        .currency-container {
+          position: relative;
+          color: lighten($color-darkgrey, 45%);
+          font-weight: bold;
+          font-family: $font-main;
+          white-space: nowrap;
 
-        @media only screen and (min-width : 320px) and (max-width : 480px) {
-          padding-left: 20px;
-        }
+          @include media-query(small) {
+            padding-left: 20px;
+          }
 
 
         select {
-          color: #777777;
-          font-family: 'Montserrat', sans-serif;
+          color: lighten($color-darkgrey, 45%);
+          font-family: $font-main;
           font-weight: bold;
           background-color: transparent;
           border-color: transparent;
@@ -310,31 +300,29 @@ export default {
             outline: none;
           }
           option {
-            background-color: #333333;
+            background-color: darken($color-darkgrey, 10%);
           }
         }
       }
 
       .route-container {
         height: 100%;
-        display: flex;
-        align-items: center;
+        @include flexrow-cv;
 
         .route {
           white-space: nowrap;
-          color: #999999;
+          color: lighten($color-darkgrey, 45%);
           margin-right: 15px;
           text-decoration: none;
-          font-family: 'Roboto', sans-serif;
+          font-family: $font-sec;
 
           &:hover {
-            color: #00c8c8;
+            color: $color-cyan;
           }
 
-
-        @media only screen and (min-width : 320px) and (max-width : 480px) {
-          display: none;
-      }
+          @include media-query(small) {
+            display: none;
+          }
         }
 
         .cart-container {
@@ -342,9 +330,9 @@ export default {
           margin-left: 40px;
           
           .cart-container__button {
-            color: #ffffff;
+            color: $color-white;
             height: 100%;
-            background-color: #00c8c8;
+            background-color: $color-cyan;
             border-color: transparent;
             cursor: pointer;
             padding: 0px 20px 0px 20px;
@@ -368,12 +356,12 @@ export default {
   
 
   .bottom-nav {
-      position: relative;
+    position: relative;
     height: 120px;
-    background-color: #f8f8f8;
+    background-color: $color-lightgrey;
 
-    @media only screen and (min-width : 320px) and (max-width : 480px) {
-display: none;
+    @include media-query(small) {
+      display: none;
     }
 
     .wrapper-large {
@@ -381,20 +369,18 @@ display: none;
       margin: auto;
       height: 100%;
       padding: 0px 20px 0px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      max-width: 1440px;
+      @include flexrow-ce;
+      max-width: $width-big;
       height: 100%;
 
 
       .logo {
         margin-right: auto;
         text-decoration: none;
-        font-family: 'Roboto', sans-serif;
+        font-family: $font-sec;
         font-size: 1.5em;
         white-space: nowrap;
-        color: #222222 !important;
+        color: $color-darkgrey !important;
       }
 
       .search-input {
@@ -406,19 +392,17 @@ display: none;
         padding: 30px 0px 30px 0px;
         margin-left: 30px;
         text-decoration: none;
-        font-family: 'Roboto', sans-serif;
+        font-family: $font-sec;
         color: #222222;
         white-space: nowrap;
         font-weight: bold;
 
         &:hover {
-          color: #00c8c8;
+          color: $color-cyan;
         }
       }
       
       .arrow {
-
-
         &::after {
           display: flex;
           margin-top: 3px;
@@ -433,46 +417,40 @@ display: none;
       .dropdown {
         position: relative;
 
-
         .dropdown__content {
-          display: flex;
-          justify-content: space-around;
+          @include flexrow-sa;
           flex-wrap: wrap;
           min-width: 380px;
           margin: 30px 0px 0px 30px;
           position: absolute;
-          background-color: #f8f8f8;
+          background-color: $color-lightgrey;
           box-shadow: 0px 6px 15px 2px rgba(0,0,0,0.21);
           z-index: 1;
 
           .dropdown-content-row {
             padding: 20px;
-            display: flex;
-            flex-direction: column;
+            @include flexcolumn;
 
             .dropdown-content-row__heading {
               margin-bottom: 10px;
-              color: #575153;
+              color: $color-darkgrey;
             }
 
             .dropdown-content-row__item {
               margin-top: 8px;
               text-decoration: none;
-              color: #727272;
+              color: lighten($color-darkgrey, 20%);
 
               &:hover {
-                color: #00c8c8;
+                color: $color-cyan;
               }
             }
-          }
-
-          
+          }         
         }
       }
 
-
       .router-link-active {
-        color: #00c8c8;
+        color: $color-cyan;
       }
     }
   }
