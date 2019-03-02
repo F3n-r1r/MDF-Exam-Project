@@ -46,9 +46,6 @@
               <router-link class="dropdown-content-row__item" to="/">Suits</router-link>
               <router-link class="dropdown-content-row__item" to="/">Trousers</router-link>
             </div>
-
-
-              <div class="ad-container"></div>
           </div>
         </div>
 
@@ -71,9 +68,6 @@
               <router-link class="dropdown-content-row__item" to="/">Suits</router-link>
               <router-link class="dropdown-content-row__item" to="/">Trousers</router-link>
             </div>
-
-
-              <div class="ad-container"></div>
           </div> 
         </div>
         
@@ -128,11 +122,28 @@
     </nav>
 
     <!-- Navigation to be displayed on mobile -->
+    <!-- Note: Quick make, very messy, make new solution if time -->
     <nav class="mobile-btm-nav">
         <router-link class="logo" to="/">AVENUE FASHION</router-link>
         <button v-on:click="showMobileMenu = !showMobileMenu" class="burger" v-bind:class="[ showMobileMenu === true ? 'open' : '' ]"></button>
       <div class="burger-menu-content" v-if="showMobileMenu">
-        <p>Mobile Nav Not Implemented</p>
+        <button class="backButton" v-if="!mainRouteContent" v-on:click="mainRouteContent = true; nestedRoutes = false"><i class="fas fa-arrow-left"></i></button>
+        <ul class="burger-menu-content__routes-container" v-if="mainRouteContent">
+          <li class="routes-container__item arrow" v-on:click="mainRouteContent = false; nestedRoutes = true">MENS<i class="icon fas fa-angle-right"></i></li>
+          <li class="routes-container__item arrow" v-on:click="mainRouteContent = false; nestedRoutes = true">WOMENS<i class="icon fas fa-angle-right"></i></li>
+          <li class="routes-container__item" v-on:click="showMobileMenu = false"><router-link class="route" to="/brand">THE BRAND</router-link></li>
+          <li class="routes-container__item arrow" v-on:click="mainRouteContent = false; nestedRoutes = true">LOCAL STORES<i class="icon fas fa-angle-right"></i></li>
+          <li class="routes-container__item arrow" v-on:click="mainRouteContent = false; nestedRoutes = true">LOOK BOOK<i class="icon fas fa-angle-right"></i></li>
+        </ul>
+        <!-- Note: If time make it so that the nested routes shown belongs to the parent clicked -->
+        <ul class="nested-routes-container" v-if="nestedRoutes">
+            <li class="nested-routes-container__item">Rand 1</li>
+            <li class="nested-routes-container__item">Rand 2</li>
+            <li class="nested-routes-container__item">Rand 3</li>
+            <li class="nested-routes-container__item">Rand 4</li>
+            <li class="nested-routes-container__item">Rand 5</li>
+            <li class="nested-routes-container__item">Rand 6</li>
+        </ul>
       </div>
     </nav>
 
@@ -145,13 +156,19 @@ export default {
   name: 'Navigation',
   data: function() {
     return {
+      // This should be altered to just use numbers, like the tabs.
       showDropDownMens: false,
       showDropDownWomens: false,
       showDropDownStores: false,
       showDropDownLookbook: false,
       showDropDownCurrency: false,
 
-      showMobileMenu: false
+      // Mobile menu not displayed at first
+      showMobileMenu: false,
+      // Mobile menu main content displayed at first
+      mainRouteContent: true,
+      // Mobile menu nested routes
+      nestedRoutes: false
     }
   }
 }
@@ -240,10 +257,11 @@ export default {
       }
 
       .burger-menu-content {
+        position: relative;
         position: fixed;
         overflow: hidden;
-        background-color: $color-lightgrey;
         @include flexrow-cc;
+        background-color: $color-lightgrey;
         height: 100%;
         width: 100%;
         top: 0;
@@ -251,6 +269,89 @@ export default {
         left: 0;
         right: 0;
         z-index: 1;
+
+        .backButton {
+          position: absolute;
+          background-color: inherit;
+          color: $color-darkgrey;
+          font-size: 1.6em;
+          border: none;
+          top: 50px;
+          left: 15px;
+
+          &:hover {
+            color: $color-cyan;
+          }
+        }
+
+        .burger-menu-content__routes-container {
+          width: 100%;
+          height: 50%;
+          margin-left: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-start;
+          list-style-type: none;
+
+          .routes-container__item {
+            text-decoration: none;
+            color: $color-darkgrey;
+            cursor: pointer;
+            font-family: $font-main;
+
+            &:hover {
+              color: $color-cyan;
+            }
+
+            &:hover .icon {
+              color: $color-cyan;
+            }
+
+            .route {
+              font-family: $font-main;
+              text-decoration: none;
+              all: unset;
+            }
+
+            .icon {
+              margin-left: 5px;
+              color: $color-darkgrey;
+            }
+          }
+        }
+
+        .nested-routes-container {
+          width: 100%;
+          height: 50%;
+          margin-left: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-start;
+          list-style-type: none;
+
+          .nested-routes-container__item {
+            text-decoration: none;
+            color: $color-darkgrey;
+            cursor: pointer;
+            font-family: $font-main;
+
+            &:hover {
+              color: $color-cyan;
+            }
+
+            &:hover .icon {
+              color: $color-cyan;
+            }
+
+            .route {
+              font-family: $font-main;
+              text-decoration: none;
+              all: unset;
+            }
+          }
+        }
       }
   }
 
