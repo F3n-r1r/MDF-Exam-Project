@@ -4,7 +4,7 @@
     <section class="banner">
       <div class="wrapper">
         <h1 class="companyLogo"><span>A</span><span>V</span><span>E</span></h1>
-
+        <button class="primary-btn">SHOP MEN'S COLLECTION</button>
       </div>    
     </section>
 

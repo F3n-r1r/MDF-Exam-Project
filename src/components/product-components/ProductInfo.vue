@@ -189,9 +189,9 @@ export default {
                     id: 1,
                     productCode: 345, 
                     img: 'product4.jpg', 
-                    imgAlt: 'Black Long Sleeved Sweatshirt 4',
+                    imgAlt: 'Black Long Sleeved Sweatshirt',
                     class: 'big',
-                    productName: 'Black Long Sleeved Sweatshirt',
+                    productName: 'Black Long Sleeved Sweatshirt 4',
                     productDescription: 'Classic casual long sleeved shirt for men on the move. 100% cotton.'
                 },
                 {

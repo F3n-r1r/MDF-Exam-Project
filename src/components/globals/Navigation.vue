@@ -28,7 +28,7 @@
         <router-link class="logo" to="/">AVENUE FASHION</router-link>
 
         <div class="dropdown" @mouseover="showDropDownMens = true" @mouseleave="showDropDownMens = false">
-          <router-link class="menu-item arrow" to="/mens">MENS</router-link>
+          <router-link class="menu-item arrow" to="#">MENS</router-link>
           <div class="dropdown__content" v-if="showDropDownMens">
             <div class="dropdown-content-row">
               <h5 class="dropdown-content-row__heading">CASUALS</h5>
@@ -102,12 +102,12 @@
               <router-link class="dropdown-content-row__item" to="#">Copenhagen</router-link>
               <router-link class="dropdown-content-row__item" to="#">Roskilde</router-link>
             </div>
-                        <div class="dropdown-content-row">
+            <div class="dropdown-content-row">
               <h5 class="dropdown-content-row__heading">Zealand</h5>
               <router-link class="dropdown-content-row__item" to="#">Copenhagen</router-link>
               <router-link class="dropdown-content-row__item" to="#">Roskilde</router-link>
             </div>
-                        <div class="dropdown-content-row">
+            <div class="dropdown-content-row">
               <h5 class="dropdown-content-row__heading">Zealand</h5>
               <router-link class="dropdown-content-row__item" to="#">Copenhagen</router-link>
               <router-link class="dropdown-content-row__item" to="#">Roskilde</router-link>
@@ -134,6 +134,7 @@
           <li class="routes-container__item" v-on:click="showMobileMenu = false"><router-link class="route" to="/brand">THE BRAND</router-link></li>
           <li class="routes-container__item arrow" v-on:click="mainRouteContent = false; nestedRoutes = true">LOCAL STORES<i class="icon fas fa-angle-right"></i></li>
           <li class="routes-container__item arrow" v-on:click="mainRouteContent = false; nestedRoutes = true">LOOK BOOK<i class="icon fas fa-angle-right"></i></li>
+          <li class="routes-container__item" v-on:click="showMobileMenu = false"><router-link class="route" to="/authenticate">SIGN IN / REGISTER</router-link></li>
         </ul>
         <!-- Note: If time make it so that the nested routes shown belongs to the parent clicked -->
         <ul class="nested-routes-container" v-if="nestedRoutes">
